@@ -47,6 +47,25 @@ The text has in total 21 words
 Next up, the kata starts to be a bit more complex. Make sure to complete this challenge first before going on into the second.
 
 ## Second challenge
+Now I would like to know how much time would it take the user to read my post, for that I should apply the following formula:
+
+(The average reading rate is actually **238**, according to this study, but **200** is a nice compromise and is easier to remember.)
+
+Here’s the formula:
+
+* Get your total word count (including the headline and subhead).
+* Divide total word count by 200. The number before the decimal is your minutes.
+* Take the decimal points and multiply that number by .60. That will give you your seconds.
+
+
+Example:
+```
+783 words ÷ 200 = 3.915 (3 = 3 minutes)
+.915 × .60 = .549 (a little over 54 seconds, so I’d bump it up to 60 seconds, or a full minute)
+reading time for this example article is 4 minutes
+```
+
+## Third challenge
 
 Besides the previous features, the text processing also should have:
 
