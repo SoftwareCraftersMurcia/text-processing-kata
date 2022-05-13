@@ -56,4 +56,13 @@ class TextProcessorTest {
     then(textAnalyzed.topWords()).containsExactly("one", "two");
   }
 
+  @Test
+  void given_some_word_with_capital_letter_then_is_counted_twice() {
+    String givenTwoWords = "two one One";
+
+    TextAnalyzed textAnalyzed = textProcessor.analyse(givenTwoWords);
+
+    then(textAnalyzed.topWords()).containsExactly("one", "two");
+  }
+
 }
