@@ -10,6 +10,7 @@ class TextProcessor
             return ProcessedText::empty();
         }
 
+        $string = str_replace(['.', ','], '', $string);
         $listOfWords = explode(' ', strtolower($string));
 
         return new ProcessedText(

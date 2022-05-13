@@ -29,17 +29,25 @@ class TextProcessorTest extends TestCase
         self::assertSame($totalwords, $processedText->totalWords());
     }
 
-
     /**
-     * @test
-     * @dataProvider provideTexts
+     * @xtest
      */
     public function given_real_text_example(): void
     {
-        $processedText = TextProcessor::analyse('Hello, this is an example for you to practic'You should grab this text and make it as your test case.');',
+        $processedText = TextProcessor::analyse('Hello, this is an example for you to practice. You should grab this text and make it as your test case.');
 
         self::assertSame(['you', 'this', 'your', 'to', 'text', 'test', 'should', 'practice', 'make', 'it'], $processedText->topWords());
         self::assertSame(21, $processedText->totalWords());
     }
 
+    /**
+     * @test
+     */
+    public function the_string_is_cleaned(): void
+    {
+        $processedText = TextProcessor::analyse('Hello, practice. case.');
+
+        self::assertSame(['hello', 'practice', 'case'], $processedText->topWords());
+        self::assertSame(3, $processedText->totalWords());
+    }
 }
