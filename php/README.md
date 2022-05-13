@@ -1,6 +1,6 @@
 [Text processing kata documentatio](https://katalyst.codurance.com/text-processing)
 
-# Introducition
+# Introduction
 As a developer that writes blog posts I want a tool that helps me to understand better the text I am writing. For that I need a way to know the following:
 1. What are the most common words used in the text?
 2. How many characters does the text have?
