@@ -3,8 +3,15 @@ package com.katas.java;
 import java.util.List;
 
 public final class TextAnalyzed {
-  public int wordCount() {
-    return 0;
+
+  private long numberWords;
+
+  public TextAnalyzed(long numberWords) {
+    this.numberWords = numberWords;
+  }
+
+  public long wordCount() {
+    return numberWords;
   }
 
   public List<String> topWords() {
