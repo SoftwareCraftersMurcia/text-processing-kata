@@ -9,6 +9,9 @@ class TextProcessor
         if (empty($string)) {
             return ProcessedText::empty();
         }
-        return new ProcessedText([$string], 1);
+
+        $listOfWords = explode(' ', $string);
+
+        return new ProcessedText($listOfWords, count($listOfWords));
     }
 }
