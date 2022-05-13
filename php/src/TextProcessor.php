@@ -12,6 +12,9 @@ class TextProcessor
 
         $listOfWords = explode(' ', $string);
 
-        return new ProcessedText($listOfWords, count($listOfWords));
+        return new ProcessedText(
+            array_unique($listOfWords),
+            count($listOfWords)
+        );
     }
 }
