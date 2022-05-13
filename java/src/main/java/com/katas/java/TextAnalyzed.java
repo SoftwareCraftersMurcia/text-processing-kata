@@ -1,13 +1,14 @@
 package com.katas.java;
 
+import java.util.List;
 import java.util.Set;
 
 public final class TextAnalyzed {
 
   private long numberWords;
-  private Set<String> topWords;
+  private List<String> topWords;
 
-  public TextAnalyzed(long numberWords, Set<String> topWords) {
+  public TextAnalyzed(long numberWords, List<String> topWords) {
     this.numberWords = numberWords;
     this.topWords = topWords;
   }
@@ -16,7 +17,7 @@ public final class TextAnalyzed {
     return numberWords;
   }
 
-  public Set<String> topWords() {
+  public List<String> topWords() {
     return topWords;
   }
 }

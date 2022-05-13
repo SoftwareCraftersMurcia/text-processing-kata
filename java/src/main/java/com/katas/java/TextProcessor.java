@@ -1,6 +1,8 @@
 package com.katas.java;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -20,6 +22,14 @@ public final class TextProcessor {
                                    .mapToLong(Long::longValue)
                                    .sum();
 
-    return new TextAnalyzed(numberOfwords, wordsCount.keySet());
+    List<String> wordSorted = wordsCount.entrySet()
+                                        .stream()
+                                        .sorted((o1, o2) -> o2.getValue()
+                                                              .compareTo(o1.getValue()))
+                                        .map(Map.Entry::getKey)
+                                        .collect(Collectors.toList());
+
+    return new TextAnalyzed(numberOfwords, wordSorted);
   }
+
 }
