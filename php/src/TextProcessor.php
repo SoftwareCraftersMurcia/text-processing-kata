@@ -10,7 +10,7 @@ class TextProcessor
             return ProcessedText::empty();
         }
 
-        $listOfWords = explode(' ', $string);
+        $listOfWords = explode(' ', strtolower($string));
 
         return new ProcessedText(
             array_unique($listOfWords),
