@@ -30,12 +30,21 @@ class TextProcessorTest {
   }
 
   @Test
-  void should_count_words_when_two_word_are_given() {
+  void given_two_different_words_then_word_count_is_two() {
     String givenTwoWords = "one two";
 
     TextAnalyzed textAnalyzed = textProcessor.analyse(givenTwoWords);
 
     then(textAnalyzed.wordCount()).isEqualTo(2);
+  }
+
+  @Test
+  void given_two_different_words_then_top_ten_has_two_words() {
+    String givenTwoWords = "one two";
+
+    TextAnalyzed textAnalyzed = textProcessor.analyse(givenTwoWords);
+
+    then(textAnalyzed.topWords()).containsExactly("one", "two");
   }
 
 }

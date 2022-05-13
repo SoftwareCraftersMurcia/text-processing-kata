@@ -1,20 +1,22 @@
 package com.katas.java;
 
-import java.util.List;
+import java.util.Set;
 
 public final class TextAnalyzed {
 
   private long numberWords;
+  private Set<String> topWords;
 
-  public TextAnalyzed(long numberWords) {
+  public TextAnalyzed(long numberWords, Set<String> topWords) {
     this.numberWords = numberWords;
+    this.topWords = topWords;
   }
 
   public long wordCount() {
     return numberWords;
   }
 
-  public List<String> topWords() {
-    return List.of();
+  public Set<String> topWords() {
+    return topWords;
   }
 }
