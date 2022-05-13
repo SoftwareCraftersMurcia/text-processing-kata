@@ -15,4 +15,13 @@ class TextProcessorTest extends TestCase
 
         self::assertEquals(ProcessedText::empty(), $processedText);
     }
+
+    /** @test */
+    public function given_one_word_as_input(): void
+    {
+        $actual = TextProcessor::analyse('one_word');
+
+        self::assertEquals(['one_word'], $actual->topWords());
+        self::assertEquals(1, $actual->totalWords());
+    }
 }
