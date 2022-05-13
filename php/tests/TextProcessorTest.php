@@ -42,4 +42,13 @@ class TextProcessorTest extends TestCase
         self::assertEquals(['one_word', 'two_word'], $actual->topWords());
         self::assertEquals(3, $actual->totalWords());
     }
+
+    /** @test */
+    public function given_repeated_words_with_different_case_as_input(): void
+    {
+        $actual = TextProcessor::analyse('one_word two_word ONE_WORD');
+
+        self::assertEquals(['one_word', 'two_word'], $actual->topWords());
+        self::assertEquals(3, $actual->totalWords());
+    }
 }
