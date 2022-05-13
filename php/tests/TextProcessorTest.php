@@ -24,4 +24,13 @@ class TextProcessorTest extends TestCase
         self::assertEquals(['one_word'], $actual->topWords());
         self::assertEquals(1, $actual->totalWords());
     }
+
+    /** @test */
+    public function given_two_word_as_input(): void
+    {
+        $actual = TextProcessor::analyse('one_word two_word');
+
+        self::assertEquals(['one_word', 'two_word'], $actual->topWords());
+        self::assertEquals(2, $actual->totalWords());
+    }
 }
