@@ -2,7 +2,6 @@
 
 namespace KataTests;
 
-use Kata\ProcessedText;
 use Kata\TextProcessor;
 use PHPUnit\Framework\TestCase;
 
@@ -30,7 +29,7 @@ class TextProcessorTest extends TestCase
     }
 
     /**
-     * @xtest
+     * @test
      */
     public function given_real_text_example(): void
     {
