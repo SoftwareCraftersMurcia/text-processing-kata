@@ -6,6 +6,9 @@ class TextProcessor
 {
     public static function analyse(string $string): ProcessedText
     {
-        return ProcessedText::empty();
+        if (empty($string)) {
+            return ProcessedText::empty();
+        }
+        return new ProcessedText([$string], 1);
     }
 }
