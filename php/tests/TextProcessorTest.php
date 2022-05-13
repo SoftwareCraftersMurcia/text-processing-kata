@@ -8,47 +8,38 @@ use PHPUnit\Framework\TestCase;
 
 class TextProcessorTest extends TestCase
 {
-    /** @test */
-    public function given_empty_input_then_empty_processed_text(): void
+    public function provideTexts(): iterable
     {
-        $processedText = TextProcessor::analyse('');
-
-        self::assertEquals(ProcessedText::empty(), $processedText);
+        yield ['', [], 0];
+        yield ['one_word', ['one_word'], 1];
+        yield ['one_word two_words', ['one_word', 'two_words'], 2];
+        yield ['one_word two_words one_word', ['one_word', 'two_words'], 3];
+        yield ['one_word two_words ONE_WORD', ['one_word', 'two_words'], 3];
     }
 
-    /** @test */
-    public function given_one_word_as_input(): void
+    /**
+     * @test
+     * @dataProvider provideTexts
+     */
+    public function given_a_text_to_process(string $input, array $expectedWords, int $totalwords): void
     {
-        $actual = TextProcessor::analyse('one_word');
+        $processedText = TextProcessor::analyse($input);
 
-        self::assertEquals(['one_word'], $actual->topWords());
-        self::assertEquals(1, $actual->totalWords());
+        self::assertSame($expectedWords, $processedText->topWords());
+        self::assertSame($totalwords, $processedText->totalWords());
     }
 
-    /** @test */
-    public function given_two_words_as_input(): void
-    {
-        $actual = TextProcessor::analyse('one_word two_word');
 
-        self::assertEquals(['one_word', 'two_word'], $actual->topWords());
-        self::assertEquals(2, $actual->totalWords());
+    /**
+     * @test
+     * @dataProvider provideTexts
+     */
+    public function given_real_text_example(): void
+    {
+        $processedText = TextProcessor::analyse('Hello, this is an example for you to practic'You should grab this text and make it as your test case.');',
+
+        self::assertSame(['you', 'this', 'your', 'to', 'text', 'test', 'should', 'practice', 'make', 'it'], $processedText->topWords());
+        self::assertSame(21, $processedText->totalWords());
     }
 
-    /** @test */
-    public function given_repeated_words_as_input(): void
-    {
-        $actual = TextProcessor::analyse('one_word two_word one_word');
-
-        self::assertEquals(['one_word', 'two_word'], $actual->topWords());
-        self::assertEquals(3, $actual->totalWords());
-    }
-
-    /** @test */
-    public function given_repeated_words_with_different_case_as_input(): void
-    {
-        $actual = TextProcessor::analyse('one_word two_word ONE_WORD');
-
-        self::assertEquals(['one_word', 'two_word'], $actual->topWords());
-        self::assertEquals(3, $actual->totalWords());
-    }
 }
