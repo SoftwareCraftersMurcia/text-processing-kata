@@ -26,11 +26,20 @@ class TextProcessorTest extends TestCase
     }
 
     /** @test */
-    public function given_two_word_as_input(): void
+    public function given_two_words_as_input(): void
     {
         $actual = TextProcessor::analyse('one_word two_word');
 
         self::assertEquals(['one_word', 'two_word'], $actual->topWords());
         self::assertEquals(2, $actual->totalWords());
+    }
+
+    /** @test */
+    public function given_repeated_words_as_input(): void
+    {
+        $actual = TextProcessor::analyse('one_word two_word one_word');
+
+        self::assertEquals(['one_word', 'two_word'], $actual->topWords());
+        self::assertEquals(3, $actual->totalWords());
     }
 }
