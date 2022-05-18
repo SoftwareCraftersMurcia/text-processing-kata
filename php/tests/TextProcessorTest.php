@@ -14,6 +14,7 @@ class TextProcessorTest extends TestCase
         yield ['one_word two_words', ['one_word', 'two_words'], 2];
         yield ['one_word two_words one_word', ['one_word', 'two_words'], 3];
         yield ['one_word two_words ONE_WORD', ['one_word', 'two_words'], 3];
+        yield ['Hello, this is an example for you to practice. You should grab this text and make it as your test case.', ['this', 'you', 'hello', 'is', 'an', 'example', 'for', 'to', 'practice', 'should'], 21];
     }
 
     /**
@@ -26,27 +27,5 @@ class TextProcessorTest extends TestCase
 
         self::assertSame($expectedWords, $processedText->topWords());
         self::assertSame($totalwords, $processedText->totalWords());
-    }
-
-    /**
-     * @test
-     */
-    public function given_real_text_example(): void
-    {
-        $processedText = TextProcessor::analyse('Hello, this is an example for you to practice. You should grab this text and make it as your test case.');
-
-        self::assertSame(['this', 'you', 'hello', 'is', 'an', 'example', 'for', 'to', 'practice', 'should'], $processedText->topWords());
-        self::assertSame(21, $processedText->totalWords());
-    }
-
-    /**
-     * @test
-     */
-    public function the_string_is_cleaned(): void
-    {
-        $processedText = TextProcessor::analyse('Hello, practice. case.');
-
-        self::assertSame(['hello', 'practice', 'case'], $processedText->topWords());
-        self::assertSame(3, $processedText->totalWords());
     }
 }
