@@ -35,7 +35,7 @@ class TextProcessorTest extends TestCase
     {
         $processedText = TextProcessor::analyse('Hello, this is an example for you to practice. You should grab this text and make it as your test case.');
 
-        self::assertSame(['you', 'this', 'your', 'to', 'text', 'test', 'should', 'practice', 'make', 'it'], $processedText->topWords());
+        self::assertSame(['this', 'you', 'hello', 'is', 'an', 'example', 'for', 'to', 'practice', 'should'], $processedText->topWords());
         self::assertSame(21, $processedText->totalWords());
     }
 
