@@ -33,7 +33,7 @@ class TextProcessor
         return explode(self::WORD_SEPARATOR, strtolower($string));
     }
 
-    public static function orderedTopTenWords(array $listOfWords): array
+    private static function orderedTopTenWords(array $listOfWords): array
     {
         $words = array_count_values($listOfWords);
         uasort($words, fn(int $a, int $b) => $b <=> $a);
