@@ -138,6 +138,11 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 1. `sbt` (en la carpeta scala)
 2. `~test` para ejecutar los test en hot reload
 
+## Go
+1. Instalar [Go](https://go.dev/doc/install)
+2. `go mod tidy` para instalar las dependencias
+3. `go test ./...` para ejecutar los tests
+
 ### Linux/Mac
 1. Instalar [SDKMan](https://sdkman.io/)
 2. `sdk install java 11.0.12-open` instala OpenJDK
@@ -179,3 +184,6 @@ Configuración básica para empezar a hacer una kata o aprender a hacer tests en
 [JUnit5](https://junit.org/junit5/)
 
 [MockK](https://mockk.io/)
+
+## Go
+[Testify](https://github.com/stretchr/testify) como librería para hacer aserciones
