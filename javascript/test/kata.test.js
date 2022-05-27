@@ -5,6 +5,7 @@ describe("text processor tests", () => {
     it.each`
       phrase    | expectedCount
       ${'word'} |  ${1}
+      ${'two words'} | ${2}
     `("should count $expectedCount for the phrase '$phrase' ", ({phrase, expectedCount}) => {
        const text = processText(phrase);
        const expectedText = `Those are the top ${expectedCount} words used:`
@@ -13,3 +14,5 @@ describe("text processor tests", () => {
     });
   });
 });
+
+
