@@ -14,6 +14,15 @@ describe("text processor tests", () => {
       expect(text).toContain(expectedText)
     });
   });
+
+  describe('regarding the word listing', () => {
+    it('should contain all the words', () => {
+      const text = processText('two words');
+
+      expect(text).toContain('1. two')
+      expect(text).toContain('2. words')
+    })
+  })
 });
 
 
