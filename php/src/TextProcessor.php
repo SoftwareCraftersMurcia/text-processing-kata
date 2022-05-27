@@ -11,7 +11,7 @@ class TextProcessor
      */
     public function analyse(string $text): array
     {
-        $lowerText = strtolower($text);
+        $lowerText = strtolower(trim($text));
         $cleanedText = preg_replace('/[[:punct:]]/', '', $lowerText);
         $words = explode(' ', $cleanedText);
 
