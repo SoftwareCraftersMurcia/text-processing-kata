@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace KataTests;
 
@@ -8,26 +9,26 @@ use PHPUnit\Framework\TestCase;
 class TextProcessorTest extends TestCase
 {
 
-/*
-Hello, this is an example for you to practice. You should grab this text and make it as your test case.
+    /*
+    Hello, this is an example for you to practice. You should grab this text and make it as your test case.
 
-The output should be:
+    The output should be:
 
-Those are the top 10 words used:
+    Those are the top 10 words used:
 
-1. you
-2. this
-3. your
-4. to
-5. text
-6. test
-7. should
-8. practice
-9. make
-10. it
+    1. you
+    2. this
+    3. your
+    4. to
+    5. text
+    6. test
+    7. should
+    8. practice
+    9. make
+    10. it
 
-The text has in total 21 words
-*/
+    The text has in total 21 words
+    */
 
     /** @test */
     public function analyse_two_words(): void
@@ -35,11 +36,11 @@ The text has in total 21 words
         $textProcessor = new TextProcessor();
         $text = 'hello there';
         $result = $textProcessor->analyse($text);
-        $expected = <<<TXT
-1. hello
-2. there
+        $expected = [
+            'top' => ['hello', 'there'],
+            'total' => 2,
+        ];
 
-TXT;
         self::assertEquals($expected, $result);
     }
 }

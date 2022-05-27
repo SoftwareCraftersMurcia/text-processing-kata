@@ -4,15 +4,16 @@ namespace Kata;
 
 class TextProcessor
 {
-    public function analyse($text): string
+    /**
+     * @return array{top:list<string>,total:int}
+     */
+    public function analyse($text): array
     {
         $words = explode(' ', $text);
 
-        $result = '';
-        foreach ($words as $k => $word) {
-            $result .= ($k + 1) . '. ' . $word . PHP_EOL;
-        }
-
-        return $result;
+        return [
+            'top' => $words,
+            'total' => count($words),
+        ];
     }
 }
