@@ -43,4 +43,18 @@ class TextProcessorTest extends TestCase
 
         self::assertEquals($expected, $result);
     }
+
+    /** @test */
+    public function analyse_two_words_with_duplicates(): void
+    {
+        $textProcessor = new TextProcessor();
+        $text = 'hello there there';
+        $result = $textProcessor->analyse($text);
+        $expected = [
+            'top' => ['there', 'hello'],
+            'total' => 3,
+        ];
+
+        self::assertEquals($expected, $result);
+    }
 }
