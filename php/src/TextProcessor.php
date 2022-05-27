@@ -11,9 +11,7 @@ class TextProcessor
      */
     public function analyse(string $text): array
     {
-        $lowerText = strtolower(trim($text));
-        $cleanedText = preg_replace('/[[:punct:]]/', '', $lowerText);
-        $words = explode(' ', $cleanedText);
+        $words = explode(' ', $this->sanitizedText($text));
 
         return [
             'top' => $this->getTopWords($words),
@@ -31,5 +29,11 @@ class TextProcessor
         uasort($topWords, fn(int $a, int $b) => $b <=> $a);
 
         return array_keys($topWords);
+    }
+
+    public function sanitizedText(string $text): string
+    {
+        $lowerText = strtolower(trim($text));
+        return preg_replace('/[[:punct:]]/', '', $lowerText);
     }
 }
