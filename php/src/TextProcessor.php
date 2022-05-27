@@ -12,8 +12,9 @@ class TextProcessor
     public function analyse(string $text): array
     {
         $words = explode(' ', $this->sanitizedText($text));
+
         return [
-            'top' => $this->getTopWords($words),
+            'top' => array_slice($this->getTopWords($words), 0, 10),
             'total' => count($words),
         ];
     }

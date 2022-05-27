@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace KataTests;
@@ -94,16 +95,16 @@ class TextProcessorTest extends TestCase
         $result = $textProcessor->analyse($text);
         $expected = [
             'top' => [
-                'you',
                 'this',
+                'you',
                 'hello',
-                'text',
-                'test',
-                'your',
-                'as',
-                'it',
-                'make',
-                'and',
+                'is',
+                'an',
+                'example',
+                'for',
+                'to',
+                'practice',
+                'should',
             ],
             'total' => 21,
         ];
