@@ -11,7 +11,8 @@ class TextProcessor
      */
     public function analyse(string $text): array
     {
-        $words = explode(' ', $text);
+        $lowerText = strtolower($text);
+        $words = explode(' ', $lowerText);
 
         return [
             'top' => $this->getTopWords($words),
@@ -19,7 +20,10 @@ class TextProcessor
         ];
     }
 
-    public function getTopWords($words): array
+    /**
+     * @param list<string> $words
+     */
+    public function getTopWords(array $words): array
     {
         $topWords = [];
         foreach ($words as $word) {
