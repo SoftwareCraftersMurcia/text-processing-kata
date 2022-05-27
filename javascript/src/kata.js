@@ -1,5 +1,10 @@
 const analyse = (text) => {
-  return 0;
+
+    if(text === undefined || text === ""){
+        return [];
+    }else{
+        return [text];
+    }
 };
 
 module.exports = { analyse };
