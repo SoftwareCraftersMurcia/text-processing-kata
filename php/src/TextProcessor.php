@@ -25,13 +25,7 @@ class TextProcessor
      */
     public function getTopWords(array $words): array
     {
-        $topWords = [];
-        foreach ($words as $word) {
-            if (!isset($topWords[$word])) {
-                $topWords[$word] = 0;
-            }
-            $topWords[$word]++;
-        }
+        $topWords = array_count_values($words);
 
         uasort($topWords, fn(int $a, int $b) => $b <=> $a);
 
