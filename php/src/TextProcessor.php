@@ -4,8 +4,11 @@ namespace Kata;
 
 class TextProcessor
 {
-    public function analyse(): bool
+    public function analyse($text): string
     {
-        return true;
+        return <<<TXT
+1. hello
+2. there
+TXT;
     }
 }

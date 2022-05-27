@@ -8,12 +8,15 @@ use PHPUnit\Framework\TestCase;
 class TextProcessorTest extends TestCase
 {
     /** @test */
-    public function give_me_a_good_name_please(): void
+    public function analyse_two_words(): void
     {
         $textProcessor = new TextProcessor();
-
-        $result = $textProcessor->analyse();
-
-        self::assertEquals(true, $result);
+        $text = 'hello there';
+        $result = $textProcessor->analyse($text);
+        $expected = <<<TXT
+1. hello
+2. there
+TXT;
+        self::assertEquals($expected, $result);
     }
 }
