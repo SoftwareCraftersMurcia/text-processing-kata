@@ -1,8 +1,8 @@
-const { renameMe } = require('../src/kata');
+const { analyse } = require('../src/kata');
 
 describe("Kata", function () {
-  it("change_this_name", function () {
-   var result = renameMe();
+  it("Nombre cuadra con analayse", function () {
+   var result = analyse();
       expect(result).toBe(true);
   });
 });
