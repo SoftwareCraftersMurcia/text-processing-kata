@@ -1,5 +1,5 @@
-const renameMe = () => {
+const analyse = () => {
     return true;
 };
 
-module.exports = {renameMe};
+module.exports = {analyse};
