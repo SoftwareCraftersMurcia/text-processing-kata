@@ -71,4 +71,18 @@ class TextProcessorTest extends TestCase
 
         self::assertEquals($expected, $result);
     }
+
+    /** @test */
+    public function analyse_duplicate_words_with_special_characters(): void
+    {
+        $textProcessor = new TextProcessor();
+        $text = 'Hello, Another another.';
+        $result = $textProcessor->analyse($text);
+        $expected = [
+            'top' => ['another', 'hello'],
+            'total' => 3,
+        ];
+
+        self::assertEquals($expected, $result);
+    }
 }
