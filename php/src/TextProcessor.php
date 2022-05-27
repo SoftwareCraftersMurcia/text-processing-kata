@@ -12,7 +12,7 @@ class TextProcessor
     public function analyse(string $text): array
     {
         $lowerText = strtolower($text);
-        $cleanedText = preg_replace('/[^A-Za-z0-9 \-]/', '', $lowerText);
+        $cleanedText = preg_replace('/[[:punct:]]/', '', $lowerText);
         $words = explode(' ', $cleanedText);
 
         return [
