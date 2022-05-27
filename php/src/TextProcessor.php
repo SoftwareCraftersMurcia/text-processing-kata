@@ -6,9 +6,13 @@ class TextProcessor
 {
     public function analyse($text): string
     {
-        return <<<TXT
-1. hello
-2. there
-TXT;
+        $words = explode(' ', $text);
+
+        $result = '';
+        foreach ($words as $k => $word) {
+            $result .= ($k + 1) . '. ' . $word . PHP_EOL;
+        }
+
+        return $result;
     }
 }

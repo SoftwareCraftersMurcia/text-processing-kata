@@ -7,6 +7,28 @@ use PHPUnit\Framework\TestCase;
 
 class TextProcessorTest extends TestCase
 {
+
+/*
+Hello, this is an example for you to practice. You should grab this text and make it as your test case.
+
+The output should be:
+
+Those are the top 10 words used:
+
+1. you
+2. this
+3. your
+4. to
+5. text
+6. test
+7. should
+8. practice
+9. make
+10. it
+
+The text has in total 21 words
+*/
+
     /** @test */
     public function analyse_two_words(): void
     {
@@ -16,6 +38,7 @@ class TextProcessorTest extends TestCase
         $expected = <<<TXT
 1. hello
 2. there
+
 TXT;
         self::assertEquals($expected, $result);
     }
