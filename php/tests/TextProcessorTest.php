@@ -48,10 +48,10 @@ class TextProcessorTest extends TestCase
     public function analyse_two_words_with_duplicates(): void
     {
         $textProcessor = new TextProcessor();
-        $text = 'hello there there';
+        $text = 'hello another another';
         $result = $textProcessor->analyse($text);
         $expected = [
-            'top' => ['there', 'hello'],
+            'top' => ['another', 'hello'],
             'total' => 3,
         ];
 

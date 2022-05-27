@@ -13,6 +13,14 @@ class TextProcessor
     {
         $words = explode(' ', $text);
 
+        return [
+            'top' => $this->getTopWords($words),
+            'total' => count($words),
+        ];
+    }
+
+    public function getTopWords($words): array
+    {
         $topWords = [];
         foreach ($words as $word) {
             if (!isset($topWords[$word])) {
@@ -21,11 +29,8 @@ class TextProcessor
             $topWords[$word]++;
         }
 
-        krsort($topWords);
+        uasort($topWords, fn(int $a, int $b) => $b <=> $a);
 
-        return [
-            'top' => array_keys($topWords),
-            'total' => count($words),
-        ];
+        return array_keys($topWords);
     }
 }
