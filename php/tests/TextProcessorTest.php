@@ -85,4 +85,29 @@ class TextProcessorTest extends TestCase
 
         self::assertEquals($expected, $result);
     }
+
+    /** @test */
+    public function analyse_top_ten_words(): void
+    {
+        $textProcessor = new TextProcessor();
+        $text = 'Hello, this is an example for you to practice. You should grab this text and make it as your test case.';
+        $result = $textProcessor->analyse($text);
+        $expected = [
+            'top' => [
+                'you',
+                'this',
+                'hello',
+                'text',
+                'test',
+                'your',
+                'as',
+                'it',
+                'make',
+                'and',
+            ],
+            'total' => 21,
+        ];
+
+        self::assertEquals($expected, $result);
+    }
 }
