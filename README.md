@@ -1,4 +1,4 @@
-[Text processing kata documentatio](https://katalyst.codurance.com/text-processing)
+[Text processing kata documentation](https://katalyst.codurance.com/text-processing)
 
 # Introduction
 As a developer that writes blog posts I want a tool that helps me to understand better the text I am writing. For that I need a way to know the following:
