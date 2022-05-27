@@ -1,6 +1,6 @@
 const processText = (phrase) => {
   const counter = phrase.split(' ')
-    return `Those are the top ${counter.length} words used:`;
+    return `The text has in total ${counter.length} words`;
 };
 
 module.exports = {
