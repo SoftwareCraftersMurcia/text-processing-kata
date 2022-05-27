@@ -1,8 +1,8 @@
-const { analyse } = require('../src/kata');
+const { analyse } = require("../src/kata");
 
-describe("Kata", function () {
-  it("change_this_name", function () {
-   var result = analyse();
-      expect(result).toBe(true);
+describe("Kata", () => {
+  it("Analyse returns 0 when string is empty", () => {
+    var result = analyse("");
+    expect(result).toBe(0);
   });
 });
