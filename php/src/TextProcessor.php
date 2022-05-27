@@ -9,7 +9,7 @@ class TextProcessor
     /**
      * @return array{top:list<string>,total:int}
      */
-    public function analyse($text): array
+    public function analyse(string $text): array
     {
         $words = explode(' ', $text);
 
