@@ -2,9 +2,9 @@
 
 namespace Kata;
 
-class TheClass
+class TextProcessor
 {
-    public function theMethod(): bool
+    public function analyse(): bool
     {
         return true;
     }

@@ -2,17 +2,17 @@
 
 namespace KataTests;
 
-use Kata\TheClass;
+use Kata\TextProcessor;
 use PHPUnit\Framework\TestCase;
 
-class MyClassTest extends TestCase
+class TextProcessorTest extends TestCase
 {
     /** @test */
     public function give_me_a_good_name_please(): void
     {
-        $xxx = new TheClass();
+        $textProcessor = new TextProcessor();
 
-        $result = $xxx->theMethod();
+        $result = $textProcessor->analyse();
 
         self::assertEquals(true, $result);
     }
